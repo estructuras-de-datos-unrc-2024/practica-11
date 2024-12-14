@@ -4,7 +4,7 @@ package studentsolutions;
  *  Edge class represents an undirected, weighted edge in an
  *  EdgeWeightedGraph.
  */
-public class Edge {
+public class Edge implements Comparable<Edge> {
     final int from;
     final int to;
     final double weight;
@@ -42,6 +42,13 @@ public class Edge {
         return (from == that.from && to == that.to ||
                 from == that.to && to == that.from) &&
                 Double.compare(that.weight, weight) == 0;
+    }
+
+    /**
+     * @post Compares two edges by weight.
+     */
+    public int compareTo(Edge that) {
+        return Double.compare(this.weight, that.weight);
     }
 
 }

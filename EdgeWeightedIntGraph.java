@@ -85,7 +85,9 @@ public class EdgeWeightedIntGraph {
         List<Edge> list = new LinkedList<Edge>();
         for (int v = 0; v < V; v++) {
             for (Edge e : adj(v)) {
-                list.add(e);
+                if (e.other(v) > v) {
+                    list.add(e);
+                }
             }
         }
         return list;
